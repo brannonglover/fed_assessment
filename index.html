@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FED Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <script>
+      function handleSubmit() {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("email").value;
+        const organization = document.getElementById("organization").value;
+        const euresident = document.getElementById("euResident").value;
+        const advances = document.getElementById("advances").value;
+        const alerts = document.getElementById("alerts").value;
+        const other = document.getElementById("other").value;
+
+        const formObject = {
+          firstName,
+          lastName,
+          email,
+          organization,
+          euresident,
+          advances,
+          alerts,
+          other,
+        };
+
+        const sentMessage = "Your information has been sent";
+        document.getElementById("sentMessage").innerHTML = sentMessage;
+        document.getElementById("output").innerHTML = JSON.stringify(
+          formObject,
+          null,
+          2
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <div class="sentMessage" id="sentMessage"></div>
+    <div class="output">
+      <pre id="output"></pre>
+    </div>
+    <div class="fed-assessment">
+      <h1>Sign up for email updates</h1>
+      <div class="legend">*Indicates required field</div>
+      <div class="main-form">
+        <div class="field">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstName" name="firstName" />
+        </div>
+        <div class="field">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastName" name="lastName" />
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="text" id="email" name="email" />
+        </div>
+        <div class="field">
+          <label for="organization">Organization</label>
+          <input type="text" id="organization" name="organization" />
+        </div>
+        <div class="field">
+          <label for="euresident">EU Resident</label>
+          <select name="euResident" id="euResident">
+            <option value="">--select one--</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkboxes">
+        <div class="field">
+          <label for="advances"
+            >Advances
+            <input
+              type="radio"
+              id="advances"
+              value="advances"
+              name="fieldName"
+            />
+            <span class="radio"></span>
+          </label>
+        </div>
+        <div class="field">
+          <label for="alerts"
+            >Alerts
+            <input type="radio" id="alerts" value="alerts" name="fieldName" />
+            <span class="radio"></span>
+          </label>
+        </div>
+        <div class="field">
+          <label for="other"
+            >Other Communication
+            <input type="radio" id="other" value="other" name="fieldName" />
+            <span class="radio"></span>
+          </label>
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="submit" onclick="handleSubmit(this)">Submit</button>
+        <button>Reset</button>
+      </div>
+    </div>
+  </body>
+</html>
